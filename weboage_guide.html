@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Ceremony - Prabath With Anusha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-image: url('image1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #FFFFFF; /* White text */
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Overlay to darken the background image */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+            z-index: -1;
+        }
+        h1, .welcome-message, .countdown, h2, p, .footer {
+            color: #FFFFFF; /* Ensure all text elements are white */
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .welcome-message {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .countdown {
+            font-size: 1.2em;
+            margin: 20px 0;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .booking-option {
+            background-color: rgba(76, 175, 80, 0.8); /* Slightly transparent */
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .booking-option:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            color: #45a049;
+        }
+        /* Responsive font sizing */
+        @media (max-width: 600px) {
+            h1, .welcome-message, .countdown, .footer {
+                font-size: 1.2em;
+            }
+            .booking-option {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Wedding Ceremony of Prabath & Anusha</h1>
+    <p class="welcome-message">Join us on 15th Dec (Sunday)</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">
+        Time left: <span id="days">0</span>d : <span id="hours">0</span>h : <span id="minutes">0</span>m : <span id="seconds">0</span>s
+    </div>
+
+    <h2>Choose Your Booking Option</h2>
+    <p>If you are coming in your vehicle, maps location:</p>
+    <a href="https://maps.app.goo.gl/EL4hL99jBRtKQKWk8" target="_blank" class="booking-option">Google Maps Location</a>
+
+    <p>If you are taking an Uber, book here:</p>
+    <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=10.530345&dropoff[longitude]=76.214729" target="_blank" class="booking-option">Book Uber Option</a>
+
+    <!-- Contact Us Section -->
+    <div class="footer">
+        <p>Contact Us: <a href="tel:+91-7000658633">Jaideep/Manu</a></p>
+    </div>
+
+    <script>
+        // Set the date of the event
+        const eventDate = new Date("December 15, 2024 10:30:00").getTime();
+
+        // Update the countdown every 1 second
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const timeRemaining = eventDate - now;
+
+            // Calculate days, hours, minutes, and seconds remaining
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "The ceremony has started!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
