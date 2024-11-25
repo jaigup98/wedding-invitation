@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-image: url('image1.jpg');
+            background-image: url('WhatsApp Image 2024-11-26 at 00.39.12_b3fba336.jpg'); /* Replace with your Canva image */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -25,24 +25,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust overlay transparency */
             z-index: -1;
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 15px;
             border-radius: 10px;
+            text-shadow: 2px 2px 5px #000;
         }
         .welcome-message, h2, .countdown, .footer {
             margin: 10px 0;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            text-shadow: 1px 1px 3px #000;
         }
         a {
-            color: #4CAF50;
+            color: #FFC107;
             text-decoration: none;
             font-weight: bold;
         }
@@ -53,21 +55,23 @@
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
-            background-color: rgba(76, 175, 80, 0.8);
+            background-color: rgba(255, 193, 7, 0.9);
             color: white;
             border-radius: 5px;
             text-decoration: none;
             font-size: 1.1em;
+            text-shadow: 1px 1px 3px #000;
         }
         .booking-option:hover {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             color: #333;
         }
         .extra-location {
             margin: 20px 0;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            text-shadow: 1px 1px 3px #000;
         }
         @media (max-width: 600px) {
             h1, .welcome-message, h2, .countdown, .footer {
@@ -78,20 +82,24 @@
 </head>
 <body>
     <h1>Welcome to the Wedding Ceremony of Prabhath & Anusha</h1>
-    <p class="welcome-message">Join us on 14th & 15th Dec (Sunday)</p>
+    <p class="welcome-message">Join us on 14th & 15th Dec (Sunday)</p>
 
-    <!-- Countdown Timer -->
     <div class="countdown" id="countdown">
-        Time left: <span id="days">0</span>d : <span id="hours">0</span>h : <span id="minutes">0</span>m : <span id="seconds">0</span>s
-    </div>
+		Time left: 
+		<span id="days">0</span>d : 
+		<span id="hours">0</span>h : 
+		<span id="minutes">0</span>m : 
+		<span id="seconds">0</span>s
+	</div>
 
+    <h2>Choose Your Booking Option</h2>
     <h3>Haldi & Sangeet:</h3>
     <a href="https://maps.app.goo.gl/EL4hL99jBRtKQKWk8" target="_blank" class="booking-option">Google Maps Location</a>
     <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=10.530345&dropoff[longitude]=76.214729" target="_blank" class="booking-option">Book Uber Option</a>
 
     <!-- Extra Locations -->
     <div class="extra-location">
-        <h3>Muhurtham </h3>
+        <h3>Shaadi House</h3>
         <a href="https://maps.app.goo.gl/qkHszaMc4EhxRpSX8" target="_blank" class="booking-option">Google Maps Location</a>
         <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=10.3563893&dropoff[longitude]=76.2184505" target="_blank" class="booking-option">Book Uber Option</a>
     </div>
@@ -116,25 +124,35 @@
 
     <script>
         // Countdown Timer Script
-        const eventDate = new Date("December 15, 2024 10:30:00").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const timeRemaining = eventDate - now;
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000)) / 1000);
+		const eventDate = new Date("December 15, 2024 10:30:00").getTime();
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
+		function updateCountdown() {
+			const now = new Date().getTime();
+			const timeRemaining = eventDate - now;
 
-            if (timeRemaining < 0) {
-                clearInterval();
-                document.getElementById("countdown").innerText = "The ceremony has started!";
-            }
-        }, 1000);
+			if (timeRemaining > 0) {
+				const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((timeRemaining % (1000)) / 1000);
+
+				document.getElementById("days").innerText = days;
+				document.getElementById("hours").innerText = hours;
+				document.getElementById("minutes").innerText = minutes;
+				document.getElementById("seconds").innerText = seconds;
+			} else {
+				document.getElementById("countdown").innerText = "The ceremony has started!";
+				clearInterval(timer); // Stop the interval once time has elapsed.
+			}
+		}
+
+		// Run the updateCountdown function every second
+		const timer = setInterval(updateCountdown, 1000);
+
+		// Initial call to ensure the countdown starts immediately
+		updateCountdown();
+
+
 
         // Google Photos and iCloud Album Access
         function validatePassword() {
