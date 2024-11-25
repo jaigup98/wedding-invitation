@@ -108,6 +108,8 @@
     <div class="footer">
         <p>Contact Us: <a href="tel:+91-7000658633">Jaideep/Manu</a></p>
     </div>
+	
+	<script src="script.js"></script> <!-- Link to the external JS file -->
 
     <script>
         // Countdown Timer Script
@@ -119,7 +121,6 @@
             const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeRemaining % (1000 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeRemaining % (1000)) / 1000);
-            
 
             document.getElementById("days").innerText = days;
             document.getElementById("hours").innerText = hours;
@@ -135,8 +136,8 @@
         // Google Photos Album Access
         function accessAlbum() {
             const password = prompt("Enter password to access the album:");
-            if (password === "yourpassword") {
-                window.open("https://photos.google.com/album/example", "_blank");
+            if (password === "Vanakkam") {
+                window.open("https://photos.app.goo.gl/ZacWy3yjDBVUvKU46", "_blank");
             } else {
                 alert("Incorrect password. Access denied.");
             }
