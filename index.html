@@ -93,15 +93,21 @@
     <!-- Extra Locations -->
     <div class="extra-location">
         <h3>Shaadi House</h3>
-        <a href="https://maps.app.goo.gl/qkHszaMc4EhxRpSX8 " target="_blank" class="booking-option">Google Maps Location</a>
+        <a href="https://maps.app.goo.gl/qkHszaMc4EhxRpSX8" target="_blank" class="booking-option">Google Maps Location</a>
         <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=10.3563893&dropoff[longitude]=76.2184505" target="_blank" class="booking-option">Book Uber Option</a>
     </div>
 
-    <!-- Google Photos Album -->
+    <!-- Albums Section -->
     <div class="extra-location">
-        <h3>Google Photos Album</h3>
-        <p>Enter password to access the album:</p>
-        <input type="button" value="Access Album" onclick="accessAlbum()">
+        <h3>Albums</h3>
+        <p>Enter password to access the albums:</p>
+        <input type="password" id="album-password" placeholder="Enter password">
+        <button onclick="validatePassword()">Access Albums</button>
+        <div id="album-links" style="display: none; margin-top: 10px;">
+            <p>Select an album:</p>
+            <a href="https://photos.app.goo.gl/ZacWy3yjDBVUvKU46" target="_blank" class="booking-option">Google Photos Album</a>
+            <a href="https://www.icloud.com/sharedalbum/#B2MJtdOXm7AK8uD" target="_blank" class="booking-option">iCloud Album</a>
+        </div>
     </div>
 
     <!-- Footer Section -->
@@ -131,13 +137,15 @@
             }
         }, 1000);
 
-        // Google Photos Album Access
-        function accessAlbum() {
-            const password = prompt("Enter password to access the album hehe:");
+        // Google Photos and iCloud Album Access
+        function validatePassword() {
+            const password = document.getElementById("album-password").value;
+            const albumLinks = document.getElementById("album-links");
             if (password === "Vanakkam") {
-                window.open("https://photos.app.goo.gl/ZacWy3yjDBVUvKU46", "_blank");
+                albumLinks.style.display = "block";
             } else {
                 alert("Incorrect password. Access denied.");
+                albumLinks.style.display = "none";
             }
         }
     </script>
